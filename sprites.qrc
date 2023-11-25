@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Mortys_Vindicator_Challenge/Sprites/Fondo nivel1.jpg</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/hoja.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/Lago toxico.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/lago_toxico_2.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_default_left.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/plataforma_2.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/Plataforma_default.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/Plataforma_rotada_90.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/plataforma_tipo1.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/sierra.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/spikes.png</file>
+    </qresource>
+</RCC>
