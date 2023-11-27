@@ -32,8 +32,6 @@ private:
     Plataforma *plataforma3_5;
     Plataforma *plataforma4;
     Pincho *pincho;
-    Pincho *pincho2;
-    Pincho *pincho3;
     Pincho *pincho4;
     Pincho *pincho5;
     Lago *lago_toxico;
@@ -43,6 +41,8 @@ private:
     Plataforma *plataforma_flotante2;
     Plataforma *min_plat1;
     Plataforma *min_plat2;
+    Plataforma *min_plat_aux1;
+    Plataforma *min_plat_aux2;
     Sierra *sierra;
     QGraphicsScene *nivel1;
     Nota *million_ants;

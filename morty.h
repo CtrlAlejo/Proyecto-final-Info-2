@@ -10,18 +10,18 @@ class Morty : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Morty(int x, int y, int w, int h, QString file, QObject *parent = NULL);
-    QPoint control_movimiento();
-    void establecerSobrePlataforma(bool sobrePlat);
+    Morty(int w, int h, QString file, QObject *parent = NULL);
 protected:
+    void verif_coordenadas();
     void keyPressEvent(QKeyEvent *evento);
     void keyReleaseEvent(QKeyEvent *evento);
-    void act_movimiento();
+private slots:
+    void animacion_movimiento();
+    void deteccion_plataforma();
 private:
-    int m_horizontalInput;
-    int m_direction;
-    int posX;
-    int posY;
+    QPointF posicionMorty;
+    int modo;
+    int sprite;
     int alto;
     int ancho;
     int movimiento;
@@ -29,10 +29,9 @@ private:
     qreal Vx;
     qreal gravedad;
     qreal salto;
-    QTimer *control_salto;
-    bool sobre_plataforma;
-    QPoint posicion;
-    QPoint direccion;
+    QTimer *control_sprites;
+    QTimer *verif_plataforma;
+    bool detect_plataforma;
 };
 
 #endif // MORTY_H

@@ -11,5 +11,10 @@
         <file>Mortys_Vindicator_Challenge/Sprites/plataforma_tipo1.png</file>
         <file>Mortys_Vindicator_Challenge/Sprites/sierra.png</file>
         <file>Mortys_Vindicator_Challenge/Sprites/spikes.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_left_fase1.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_left_fase2.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_default_right.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_right_fase1.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_right_fase2.png</file>
     </qresource>
 </RCC>

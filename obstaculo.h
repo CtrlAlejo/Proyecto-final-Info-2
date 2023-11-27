@@ -9,26 +9,25 @@ class Obstaculo : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Obstaculo(int x, int y, int w, int h, QString file, QObject *parent = NULL);
+    Obstaculo(int w, int h, QString file, QObject *parent = NULL);
 protected:
-    int posX;
-    int posY;
     int alto;
     int ancho;
+    QPointF posicion;
 };
 
 class Sierra : public Obstaculo
 {
     Q_OBJECT
 public:
-    Sierra(int x, int y, int w, int h, QString file, QObject *parent = NULL);
+    Sierra(int w, int h, QString file, QObject *parent = NULL);
 };
 
 class Pincho : public Obstaculo
 {
     Q_OBJECT
 public:
-    Pincho(int x, int y, int w, int h, QString file, QObject *parent = NULL);
+    Pincho(int w, int h, QString file, QObject *parent = NULL);
     void keyPressEvent(QKeyEvent *evento);
 };
 
@@ -36,15 +35,16 @@ class Plataforma : public Obstaculo
 {
     Q_OBJECT
 public:
-    Plataforma(int x, int y, int w, int h, QString file, QObject *parent = NULL);
+    Plataforma(int w, int h, QString file, QObject *parent = NULL);
     void keyPressEvent(QKeyEvent *evento);
+    QPointF get_posicion();
 };
 
 class Lago : public Obstaculo
 {
     Q_OBJECT
 public:
-    Lago(int x, int y, int w, int h, QString file, QObject *parent = NULL);
+    Lago(int w, int h, QString file, QObject *parent = NULL);
     void keyPressEvent(QKeyEvent *evento);
 };
 
