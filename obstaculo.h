@@ -9,6 +9,7 @@ class Obstaculo : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
+    Obstaculo();
     Obstaculo(int w, int h, QString file, QObject *parent = NULL);
 protected:
     int alto;
@@ -47,5 +48,4 @@ public:
     Lago(int w, int h, QString file, QObject *parent = NULL);
     void keyPressEvent(QKeyEvent *evento);
 };
-
 #endif // OBSTACULO_H

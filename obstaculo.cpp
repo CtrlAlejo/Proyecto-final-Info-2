@@ -1,4 +1,11 @@
 #include "obstaculo.h"
+#include "qbrush.h"
+#include "qpen.h"
+
+Obstaculo::Obstaculo()
+{
+
+}
 
 Obstaculo::Obstaculo(int w, int h, QString file, QObject *parent) : QObject(parent)
 {

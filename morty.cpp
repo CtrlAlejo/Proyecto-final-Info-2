@@ -7,6 +7,7 @@ extern Nivel1 * nivel1;
 
 Morty::Morty(int w, int h, QString file, QObject *parent) : QObject(parent)
 {
+    vivo = true;
     detect_plataforma = false;
     alto = w;
     ancho = h;
@@ -20,8 +21,8 @@ Morty::Morty(int w, int h, QString file, QObject *parent) : QObject(parent)
     connect(control_sprites, SIGNAL(timeout()), this, SLOT(animacion_movimiento()));
     verif_plataforma -> start(1);
     control_sprites -> start(100);
-    setFlag(QGraphicsItem::ItemIsFocusable);
-    setFocus();
+//    setFlag(QGraphicsItem::ItemIsFocusable);
+//    setFocus();
     sprite = 1;
 }
 
@@ -65,21 +66,23 @@ void Morty::verif_coordenadas()
 
 void Morty::keyPressEvent(QKeyEvent *evento)
 {
-    if (evento->isAutoRepeat()) return;
-    switch (evento -> key()){
-    case Qt::Key_W:
-        if (detect_plataforma) Vy = salto;
-        break;
-    case Qt::Key_A:
-        Vx -= 0.4;
-        modo = 1;
-        break;
-    case Qt::Key_D:
-        Vx += 0.4;
-        modo = 2;
-        break;
-    default:
-        break;
+    if (vivo){
+        if (evento->isAutoRepeat()) return;
+        switch (evento -> key()){
+        case Qt::Key_W:
+            if (detect_plataforma) Vy = salto;
+            break;
+        case Qt::Key_A:
+            Vx -= 0.4;
+            modo = 1;
+            break;
+        case Qt::Key_D:
+            Vx += 0.4;
+            modo = 2;
+            break;
+        default:
+            break;
+        }
     }
 }
 
@@ -118,7 +121,6 @@ void Morty::deteccion_plataforma()
             if (Vy > 0.0){
                 Vy = 0.0;
             }
-
             break;
         }
         else if (dynamic_cast<Nota*>(item)){

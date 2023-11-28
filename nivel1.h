@@ -6,6 +6,8 @@
 #include "obstaculo.h"
 #include <QObject>
 #include <QGraphicsView>
+#include "imagen.h"
+#include "pizarra.h"
 
 class Nivel1 : public QGraphicsView
 {
@@ -21,6 +23,7 @@ public:
     void detectar_plataformas();
     void poner_base();
     void spawn_morty();
+    void poner_imagenes();
 private:
     bool check_plataforma;
     QGraphicsPixmapItem *fondo;
@@ -49,6 +52,12 @@ private:
     Nota *alan_rails;
     Nota *crocubot;
     Nota *supernova;
-
+    Nota *vance_maximus;
+    Pizarra *vindicadores;
+    imagen *millionAnts;
+    imagen *super_nova;
+    imagen *robodrilo;
+    imagen *alanrails;
+    imagen *vance;
 };
 #endif // NIVEL1_H

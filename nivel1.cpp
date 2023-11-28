@@ -21,11 +21,11 @@ void Nivel1::start()
     mini_seccion();
     poner_base();
     spawn_morty();
+    poner_imagenes();
 }
 
 void Nivel1::primer_piso()
 {
-
     plataforma = new Plataforma(700,40,":/Mortys_Vindicator_Challenge/Sprites/plataforma_tipo1.png");
     plataforma -> setPos(900,670);
     nivel1 -> addItem(plataforma);
@@ -124,4 +124,29 @@ void Nivel1::spawn_morty()
     morty = new Morty(90, 90, ":/Mortys_Vindicator_Challenge/Sprites/morty_default_right.png");
     morty -> setPos(1,600);
     nivel1 -> addItem(morty);
+}
+
+void Nivel1::poner_imagenes()
+{
+    vindicadores = new Pizarra(406,100);
+    vindicadores -> setPos(900,770);
+    nivel1 -> addItem(vindicadores);
+    millionAnts = new imagen(70, 70, ":/Mortys_Vindicator_Challenge/Sprites/million ants.png");
+    millionAnts -> setPos(908, 796);
+    nivel1 -> addItem(millionAnts);
+    super_nova = new imagen(70,70, ":/Mortys_Vindicator_Challenge/Sprites/supernova.png");
+    super_nova -> setPos(988, 796);
+    nivel1 -> addItem(super_nova);
+    robodrilo = new imagen(70,70, ":/Mortys_Vindicator_Challenge/Sprites/crocubot.png");
+    robodrilo -> setPos(1068, 796);
+    nivel1 -> addItem(robodrilo);
+    vance = new imagen(70,70, ":/Mortys_Vindicator_Challenge/Sprites/vance maximus.png");
+    vance -> setPos(1148, 796);
+    nivel1 -> addItem(vance);
+    alanrails = new imagen(70,70, ":/Mortys_Vindicator_Challenge/Sprites/alan rieles.png");
+    alanrails -> setPos(1228, 796);
+    nivel1 -> addItem(alanrails);
+    vance_maximus = new Nota(55,60,":/Mortys_Vindicator_Challenge/Sprites/hoja.png","El tipo literalmente se cree Starlord");
+    vance_maximus -> setPos(908, 610);
+    nivel1 -> addItem(vance_maximus);
 }

@@ -32,6 +32,7 @@ private:
     QTimer *control_sprites;
     QTimer *verif_plataforma;
     bool detect_plataforma;
+    bool vivo;
 };
 
 #endif // MORTY_H

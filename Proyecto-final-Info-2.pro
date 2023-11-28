@@ -9,21 +9,25 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    imagen.cpp \
     main.cpp \
     morty.cpp \
     nivel1.cpp \
     nivel2.cpp \
     nivel3.cpp \
     nota.cpp \
-    obstaculo.cpp
+    obstaculo.cpp \
+    pizarra.cpp
 
 HEADERS += \
+    imagen.h \
     morty.h \
     nivel1.h \
     nivel2.h \
     nivel3.h \
     nota.h \
-    obstaculo.h
+    obstaculo.h \
+    pizarra.h
 
 FORMS +=
 
