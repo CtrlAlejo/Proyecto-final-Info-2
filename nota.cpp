@@ -1,9 +1,17 @@
 #include "nota.h"
+#include "morty.h"
 
 Nota::Nota(int w, int h, QString file, QString texto, QObject *parent) : QObject(parent)
 {
     setPixmap(QPixmap(file).scaled(w,h));
     pista_vindicador = texto;
+    timer = new QTimer(this);
+    mensaje = new QGraphicsTextItem(pista_vindicador, this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(verif_interaccion()));
+    timer -> start(50);
+    mensaje -> setPos(posicion.x() - 10, posicion.y()- 10);
+    visible = false;
+//    scene() -> addItem(mensaje);
 //    setFlag(QGraphicsItem::ItemIsFocusable);
 //    setFocus();
 }
@@ -26,29 +34,21 @@ void Nota::keyPressEvent(QKeyEvent *evento)
     qDebug() << posicion;
 }
 
-void Nota::mostrar_mensaje()
-{
-
-    mensaje = new QGraphicsTextItem(pista_vindicador);
-    mensaje -> setPos(posicion.x() - 10, posicion.y()- 10);
-}
-
 void Nota::cambiar_visibilidad(int modo)
 {
-    if (modo == 1){
-        visible = false;
-    }
-    else {
-        visible = true;
-    }
-    setVisible(visible);
-    mensaje -> setVisible(visible);
 }
 
 void Nota::verif_interaccion()
 {
     QList<QGraphicsItem *> collidingItems = this->collidingItems();
     for (QGraphicsItem *item : collidingItems) {
-
+        if (dynamic_cast<Morty*>(item)){
+            qDebug() << "MIerDAAAAA";
+            mensaje -> setVisible(true);
+        }
+        else {
+            qDebug() << "sebolla";
+            mensaje -> setVisible(false);
+        }
     }
 }

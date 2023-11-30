@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
+#include <QTimer>
 
 class Nota : public QObject, public QGraphicsPixmapItem
 {
@@ -13,10 +14,12 @@ public:
     void keyPressEvent(QKeyEvent *evento);
     void mostrar_mensaje();
     void cambiar_visibilidad(int modo);
+private slots:
     void verif_interaccion();
 private:
     QString pista_vindicador;
     QPointF posicion;
+    QTimer *timer;
     QGraphicsTextItem *mensaje;
     bool visible;
 };

@@ -4,8 +4,6 @@ Nivel1::Nivel1(QWidget *parent) : QGraphicsView (parent)
 {
     nivel1 = new QGraphicsScene;
     setFixedSize(1600,900);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setScene(nivel1);
     fondo = new QGraphicsPixmapItem(QPixmap(":/Mortys_Vindicator_Challenge/Sprites/Fondo nivel1.jpg").scaled(1600,900));
     nivel1 -> addItem(fondo);
@@ -123,6 +121,7 @@ void Nivel1::spawn_morty()
 {
     morty = new Morty(90, 90, ":/Mortys_Vindicator_Challenge/Sprites/morty_default_right.png");
     morty -> setPos(1,600);
+    morty -> setZValue(1);
     nivel1 -> addItem(morty);
 }
 

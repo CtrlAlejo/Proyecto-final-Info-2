@@ -2,6 +2,8 @@
 #include "nivel1.h"
 #include "obstaculo.h"
 #include "nota.h"
+#include "imagen.h"
+#include "pizarra.h"
 
 extern Nivel1 * nivel1;
 
@@ -21,14 +23,14 @@ Morty::Morty(int w, int h, QString file, QObject *parent) : QObject(parent)
     connect(control_sprites, SIGNAL(timeout()), this, SLOT(animacion_movimiento()));
     verif_plataforma -> start(1);
     control_sprites -> start(100);
-//    setFlag(QGraphicsItem::ItemIsFocusable);
-//    setFocus();
+    setFlag(QGraphicsItem::ItemIsFocusable);
+    setFocus();
     sprite = 1;
 }
 
 void Morty::verif_coordenadas()
 {
-    if (posicionMorty.x() >= 822 && (584 <= posicionMorty.y() && 680 >= posicionMorty.y())){
+    if (posicionMorty.x() >= 822 && (595 <= posicionMorty.y() && 680 >= posicionMorty.y())){
         setPos(822, posicionMorty.y());
     }
     else if (posicionMorty.x() <= 687 && (495 <= posicionMorty.y() && 590 >= posicionMorty.y())){
@@ -123,12 +125,10 @@ void Morty::deteccion_plataforma()
             }
             break;
         }
-        else if (dynamic_cast<Nota*>(item)){
-            continue;
-        }
-        else if (dynamic_cast<Pincho*>(item)){
-            continue;
-        }
+        else if (dynamic_cast<Nota*>(item)) continue;
+        else if (dynamic_cast<Pincho*>(item)) continue;
+        else if (dynamic_cast<imagen*>(item)) continue;
+        else if (dynamic_cast<Pizarra*>(item)) continue;
         else{
             detect_plataforma = false;
             Vy += gravedad;
@@ -143,7 +143,6 @@ void Morty::deteccion_plataforma()
     }
     verif_coordenadas();
     setPos(x() + Vx, y() + Vy);
-    //qDebug() << posicionMorty;
 }
 
 void Morty::animacion_movimiento()
