@@ -1,54 +1,57 @@
 #include "nota.h"
 #include "morty.h"
 
-Nota::Nota(int w, int h, QString file, QString texto, QObject *parent) : QObject(parent)
+Nota::Nota(int _id, int _posX, int _posY, int w, int h, QString file, QString texto, QObject *parent) : QObject(parent)
 {
+    id = _id;
+    posX = _posX;
+    posY = _posY;
     setPixmap(QPixmap(file).scaled(w,h));
     pista_vindicador = texto;
     timer = new QTimer(this);
-    mensaje = new QGraphicsTextItem(pista_vindicador, this);
     connect(timer, SIGNAL(timeout()), this, SLOT(verif_interaccion()));
-    timer -> start(50);
-    mensaje -> setPos(posicion.x() - 10, posicion.y()- 10);
-    visible = false;
-//    scene() -> addItem(mensaje);
+    timer -> start(100);
+    mensaje = new QGraphicsTextItem(pista_vindicador, this);
+    mensaje -> setDefaultTextColor(Qt::white);
+    mensaje -> setFont(QFont("Arial", 12));
+    mensaje -> setVisible(false);
+    poner_mensaje();
+    act_mensaje = true;
 //    setFlag(QGraphicsItem::ItemIsFocusable);
 //    setFocus();
 }
 
-void Nota::keyPressEvent(QKeyEvent *evento)
+void Nota::poner_mensaje()
 {
-    posicion = this->pos();
-    if (evento -> key() == Qt::Key_W){
-        setY(y() - 4);
+    if (posX < 800){
+        mensaje -> setPos(x() + 70, y() + 20);
     }
-    else if (evento -> key() == Qt::Key_A){
-        setX(x() - 4);
+    else if (posX >= 800){
+        mensaje -> setPos(x() - 300, y() + 20);
     }
-    else if (evento -> key() == Qt::Key_S){
-        setY(y() + 4);
-    }
-    else if(evento -> key() == Qt::Key_D){
-        setX(x() + 4);
-    }
-    qDebug() << posicion;
 }
 
-void Nota::cambiar_visibilidad(int modo)
+int Nota::get_id()
 {
+    return id;
 }
 
-void Nota::verif_interaccion()
+void Nota::verif_interaccion() //Cuando Morty este sobre una nota, la nota mostrara el mensaje correspondiente al Vindicador
 {
-    QList<QGraphicsItem *> collidingItems = this->collidingItems();
-    for (QGraphicsItem *item : collidingItems) {
-        if (dynamic_cast<Morty*>(item)){
-            qDebug() << "MIerDAAAAA";
-            mensaje -> setVisible(true);
+    bool colisionConMorty;
+    if (act_mensaje){
+        QList<QGraphicsItem *> collidingItems = this->collidingItems();
+        colisionConMorty = false;
+        for (QGraphicsItem *item : collidingItems) {
+            if (dynamic_cast<Morty*>(item)){
+                colisionConMorty = true;
+                break;
+            }
         }
-        else {
-            qDebug() << "sebolla";
-            mensaje -> setVisible(false);
-        }
+        mensaje->setVisible(colisionConMorty);
+    }
+    else {
+        colisionConMorty = false;
+        mensaje->setVisible(colisionConMorty);
     }
 }

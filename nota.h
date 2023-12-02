@@ -5,23 +5,25 @@
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
 #include <QTimer>
+#include <QGraphicsScene>
 
 class Nota : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Nota(int w, int h, QString file, QString texto, QObject *parent = NULL);
-    void keyPressEvent(QKeyEvent *evento);
-    void mostrar_mensaje();
-    void cambiar_visibilidad(int modo);
+    Nota(int _id, int _posX, int _posY, int w, int h, QString file, QString texto, QObject *parent = NULL);
+    void poner_mensaje();
+    int get_id();
+    bool act_mensaje;
 private slots:
     void verif_interaccion();
 private:
     QString pista_vindicador;
-    QPointF posicion;
     QTimer *timer;
     QGraphicsTextItem *mensaje;
-    bool visible;
+    int posX;
+    int posY;
+    int id;
 };
 
 #endif // NOTA_H

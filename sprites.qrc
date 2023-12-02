@@ -21,5 +21,13 @@
         <file>Mortys_Vindicator_Challenge/Sprites/million ants.png</file>
         <file>Mortys_Vindicator_Challenge/Sprites/supernova.png</file>
         <file>Mortys_Vindicator_Challenge/Sprites/vance maximus.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/rectangulo verde.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_default.png</file>
+    </qresource>
+    <qresource prefix="/sonidos">
+        <file>Mortys_Vindicator_Challenge/Sonidos/checker imagenes.wav</file>
+        <file>Mortys_Vindicator_Challenge/Sonidos/player-losing.wav</file>
+        <file>Mortys_Vindicator_Challenge/Sonidos/salto.wav</file>
+        <file>Mortys_Vindicator_Challenge/Sonidos/Sample_0006.wav</file>
     </qresource>
 </RCC>

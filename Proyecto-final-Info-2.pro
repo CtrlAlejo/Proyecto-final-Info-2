@@ -1,4 +1,5 @@
 QT       += core gui
+QT += multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,6 +11,7 @@ CONFIG += c++17
 
 SOURCES += \
     imagen.cpp \
+    juego.cpp \
     main.cpp \
     morty.cpp \
     nivel1.cpp \
@@ -21,6 +23,7 @@ SOURCES += \
 
 HEADERS += \
     imagen.h \
+    juego.h \
     morty.h \
     nivel1.h \
     nivel2.h \

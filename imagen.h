@@ -9,12 +9,12 @@ class imagen : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    imagen(int w, int h, QString file, QObject *parent = NULL);
+    imagen(int _id, int w, int h, QString file, QObject *parent = NULL);
     int alto;
     int ancho;
-protected:
-    void keyPressEvent(QKeyEvent *evento);
+    int get_id();
 private:
+    int id;
     QPointF posicion;
 };
 

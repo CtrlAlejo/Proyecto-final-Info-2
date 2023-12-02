@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
+#include <QTimer>
 
 class Obstaculo : public QObject, public QGraphicsPixmapItem
 {
@@ -21,7 +22,13 @@ class Sierra : public Obstaculo
 {
     Q_OBJECT
 public:
-    Sierra(int w, int h, QString file, QObject *parent = NULL);
+    Sierra(int tipo_mov, int w, int h, QString file, QObject *parent = NULL);
+private slots:
+    void movimiento_sierra();
+private:
+    bool alternador_mov;
+    QTimer *control_mov;
+    int tipo_movimiento;
 };
 
 class Pincho : public Obstaculo
@@ -29,7 +36,6 @@ class Pincho : public Obstaculo
     Q_OBJECT
 public:
     Pincho(int w, int h, QString file, QObject *parent = NULL);
-    void keyPressEvent(QKeyEvent *evento);
 };
 
 class Plataforma : public Obstaculo
@@ -37,7 +43,6 @@ class Plataforma : public Obstaculo
     Q_OBJECT
 public:
     Plataforma(int w, int h, QString file, QObject *parent = NULL);
-    void keyPressEvent(QKeyEvent *evento);
     QPointF get_posicion();
 };
 
@@ -46,6 +51,5 @@ class Lago : public Obstaculo
     Q_OBJECT
 public:
     Lago(int w, int h, QString file, QObject *parent = NULL);
-    void keyPressEvent(QKeyEvent *evento);
 };
 #endif // OBSTACULO_H

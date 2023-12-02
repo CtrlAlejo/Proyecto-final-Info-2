@@ -24,7 +24,9 @@ public:
     void poner_base();
     void spawn_morty();
     void poner_imagenes();
+    void poner_sierras();
 private:
+    QGraphicsScene *nivel1;
     bool check_plataforma;
     QGraphicsPixmapItem *fondo;
     Morty *morty;
@@ -47,7 +49,6 @@ private:
     Plataforma *min_plat_aux1;
     Plataforma *min_plat_aux2;
     Sierra *sierra;
-    QGraphicsScene *nivel1;
     Nota *million_ants;
     Nota *alan_rails;
     Nota *crocubot;
@@ -59,5 +60,9 @@ private:
     imagen *robodrilo;
     imagen *alanrails;
     imagen *vance;
+    Sierra *sierra1_1;
+    Sierra *sierra1_2;
+    Sierra *sierra1_3;
+    Sierra *sierra2_1;
 };
 #endif // NIVEL1_H
