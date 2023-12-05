@@ -10,27 +10,37 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    bala.cpp \
+    bola.cpp \
     imagen.cpp \
+    jefe.cpp \
     juego.cpp \
     main.cpp \
     morty.cpp \
+    morty_armado.cpp \
     nivel1.cpp \
     nivel2.cpp \
     nivel3.cpp \
     nota.cpp \
     obstaculo.cpp \
-    pizarra.cpp
+    pizarra.cpp \
+    plasma.cpp
 
 HEADERS += \
+    bala.h \
+    bola.h \
     imagen.h \
+    jefe.h \
     juego.h \
     morty.h \
+    morty_armado.h \
     nivel1.h \
     nivel2.h \
     nivel3.h \
     nota.h \
     obstaculo.h \
-    pizarra.h
+    pizarra.h \
+    plasma.h
 
 FORMS +=
 

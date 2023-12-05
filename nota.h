@@ -13,7 +13,7 @@ class Nota : public QObject, public QGraphicsPixmapItem
 public:
     Nota(int _id, int _posX, int _posY, int w, int h, QString file, QString texto, QObject *parent = NULL);
     void poner_mensaje();
-    int get_id();
+    int get_id() const;
     bool act_mensaje;
 private slots:
     void verif_interaccion();

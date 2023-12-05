@@ -15,17 +15,19 @@ class Morty : public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Morty(Pizarra *_pizarra, int w, int h, QString file, QObject *parent = NULL);
+    Morty(int w, int h, QString file, QObject *parent = NULL);
+    virtual void cambiar_estado();
 protected:
-    void establecer_sonidos();
-    void cambiar_estado();
+    virtual void establecer_sonidos();
+    void inicializar();
     void deteccion_nota();
     void verif_coordenadas();
-    void keyPressEvent(QKeyEvent *evento);
-    void keyReleaseEvent(QKeyEvent *evento);
-private slots:
-    void animacion_movimiento();
-    void deteccion_plataforma();
-private:
+    virtual void keyPressEvent(QKeyEvent *evento);
+    virtual void keyReleaseEvent(QKeyEvent *evento);
+public slots:
+    virtual void animacion_movimiento();
+    virtual void deteccion_plataforma();
+protected:
     QPointF posicionMorty;
     int num_notas;
     int modo;

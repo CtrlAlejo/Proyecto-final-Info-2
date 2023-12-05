@@ -23,6 +23,27 @@
         <file>Mortys_Vindicator_Challenge/Sprites/vance maximus.png</file>
         <file>Mortys_Vindicator_Challenge/Sprites/rectangulo verde.png</file>
         <file>Mortys_Vindicator_Challenge/Sprites/morty_default.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_default_left_gun.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_default_right_gun.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_left_fase1_gun.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_left_fase2_gun.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_right_fase1_gun.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/morty_right_fase2_gun.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/bala_left.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/bala_right.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/bala_danada_left.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/bala_danada_right.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/proyectil jefe_fase1.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/proyectil jefe_fase2.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/proyectil jefe_fase3.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/proyectil jefe_fase4.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/proyectil jefe_fase5.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/proyectil jefe_fase6.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/proyectil jefe_fase7.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/proyectil jefe_fase8.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/supernova_boss_left.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/supernova_boss_right.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/bola electrica.png</file>
     </qresource>
     <qresource prefix="/sonidos">
         <file>Mortys_Vindicator_Challenge/Sonidos/checker imagenes.wav</file>

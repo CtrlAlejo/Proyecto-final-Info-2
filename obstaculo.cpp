@@ -70,7 +70,7 @@ Plataforma::Plataforma(int w, int h, QString file, QObject *parent) : Obstaculo(
 
 }
 
-QPointF Plataforma::get_posicion()
+QPointF Plataforma::get_posicion() const
 {
     return posicion;
 }

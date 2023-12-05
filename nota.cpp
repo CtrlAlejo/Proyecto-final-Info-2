@@ -31,7 +31,7 @@ void Nota::poner_mensaje()
     }
 }
 
-int Nota::get_id()
+int Nota::get_id() const
 {
     return id;
 }

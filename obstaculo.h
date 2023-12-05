@@ -43,7 +43,7 @@ class Plataforma : public Obstaculo
     Q_OBJECT
 public:
     Plataforma(int w, int h, QString file, QObject *parent = NULL);
-    QPointF get_posicion();
+    QPointF get_posicion() const;
 };
 
 class Lago : public Obstaculo

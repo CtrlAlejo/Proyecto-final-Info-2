@@ -9,8 +9,8 @@ class Juego : public QObject
 public:
     Juego();
 public slots:
-    //void pasarAlSiguienteNivel();
-    //void reiniciarNivelActual();
+    void pasarAlSiguienteNivel();
+    void reiniciarNivelActual();
 private:
     int nivelActual;
 };

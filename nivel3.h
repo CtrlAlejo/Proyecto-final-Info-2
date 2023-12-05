@@ -3,8 +3,9 @@
 
 #include <QObject>
 #include <QGraphicsView>
-#include "morty.h"
+#include "morty_armado.h"
 #include "obstaculo.h"
+#include "jefe.h"
 
 class Nivel3 : public QGraphicsView
 {
@@ -12,10 +13,12 @@ class Nivel3 : public QGraphicsView
 public:
     Nivel3(QWidget *parent = NULL);
 private:
-    QGraphicsScene *nivel1;
-    Morty *morty2;
-    Plataforma *base;
-
+    void start();
+    QGraphicsScene * nivel3;
+    QGraphicsPixmapItem * fondo;
+    Morty_Armado * morty2;
+    Plataforma * base;
+    Jefe * supernova;
 };
 
 #endif // NIVEL3_H
