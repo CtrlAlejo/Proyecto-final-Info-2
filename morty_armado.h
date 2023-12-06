@@ -16,6 +16,7 @@ protected:
     void keyReleaseEvent(QKeyEvent *evento) override;
     QMediaPlayer * sonido_disparo;
 signals:
+    void muerto();
     void enviar_posicion(QPointF posicionMorty);
 public slots:
     void animacion_movimiento() override;

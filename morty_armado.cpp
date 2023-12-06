@@ -4,7 +4,7 @@
 
 Morty_Armado::Morty_Armado() : Morty(70, 90, ":/Mortys_Vindicator_Challenge/Sprites/morty_default_left_gun.png")
 {
-
+    this -> setPos(0,500);
 }
 
 void Morty_Armado::cambiar_estado()
@@ -15,7 +15,6 @@ void Morty_Armado::cambiar_estado()
     Vy = 0;
     Vx = 0;
     setPixmap(QPixmap(":/Mortys_Vindicator_Challenge/Sprites/morty_default.png").scaled(90,95));
-    sonido_derrota -> play();
 }
 
 void Morty_Armado::establecer_sonidos()
@@ -71,6 +70,7 @@ void Morty_Armado::keyPressEvent(QKeyEvent *evento)
             break;
         }
     }
+    qDebug() << posicionMorty;
 }
 
 void Morty_Armado::keyReleaseEvent(QKeyEvent *evento)

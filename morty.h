@@ -18,6 +18,8 @@ public:
     Morty(Pizarra *_pizarra, int w, int h, QString file, QObject *parent = NULL);
     Morty(int w, int h, QString file, QObject *parent = NULL);
     virtual void cambiar_estado();
+signals:
+    void morty_muerto();
 protected:
     virtual void establecer_sonidos();
     void inicializar();

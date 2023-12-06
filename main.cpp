@@ -1,14 +1,11 @@
-#include "nivel1.h"
-#include "nivel2.h"
+#include "juego.h"
 #include <QApplication>
 
-Nivel1 * nivel1;
-NIvel2 * nivel2;
+Juego * juego;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    nivel2 = new NIvel2;
-    nivel2 -> show();
+    juego = new Juego;
     return a.exec();
 }

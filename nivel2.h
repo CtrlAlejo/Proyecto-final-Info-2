@@ -17,7 +17,7 @@ class NIvel2 : public QGraphicsView
 {
     Q_OBJECT
 public:
-    NIvel2(QWidget *parent = NULL);
+    NIvel2(int _vidas, QWidget *parent = NULL);
     void poner_rombos();
     void poner_bomba();
     void crear_botones();
@@ -29,7 +29,9 @@ public:
     void verif_secuencia(const QString& color);
 signals:
     void secuencia_terminada();
+    void reiniciar_nivel();
 public slots:
+    void actualizar_tiempo();
     void rojo_claro();
     void rojo();
     void azul_claro();
@@ -39,6 +41,9 @@ public slots:
     void verde_claro();
     void verde();
 private:
+    int vidas;
+    int id_nivel;
+    int tiempo_restante;
     QTimer *timer_rojo;
     QTimer *timer_azul;
     QTimer *timer_amarillo;
@@ -67,7 +72,10 @@ private:
     vector<vector<QString>> secuencias_vector;
     vector<QString> esperada;
     vector<QString> sec_usuario;
-
+    QTimer timer;
+    QGraphicsTextItem * cant_vidas;
+    QGraphicsTextItem * tiempo;
+    QGraphicsTextItem * idNivel;
 };
 
 #endif // NIVEL2_H

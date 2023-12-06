@@ -57,5 +57,5 @@ void Menu::fase2()
 
 void Menu::empezar_juego()
 {
-    emit iniciar();
+    juego = new Juego;
 }

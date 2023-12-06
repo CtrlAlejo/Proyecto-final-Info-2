@@ -1,13 +1,25 @@
 #include "nivel2.h"
 
-NIvel2::NIvel2(QWidget *parent) : QGraphicsView (parent)
+NIvel2::NIvel2(int _vidas, QWidget *parent) : QGraphicsView (parent)
 {
     nivel2 = new QGraphicsScene;
     setFixedSize(1600,900); //1600, 900
     setScene(nivel2);
+    cant_vidas = new QGraphicsTextItem;
+    cant_vidas -> setFont(QFont("Arial", 22));
+    cant_vidas -> setDefaultTextColor(Qt::white);
+    vidas = _vidas;
+    id_nivel = 2;
+    idNivel = new QGraphicsTextItem;
+    idNivel -> setFont(QFont("Arial", 22));
+    idNivel -> setDefaultTextColor(Qt::white);
+    tiempo = new QGraphicsTextItem;
+    tiempo -> setFont(QFont("Arial", 22));
+    tiempo -> setDefaultTextColor(Qt::white);
+    tiempo_restante = 5 * 60 * 1000;
     fondo = new QGraphicsPixmapItem(QPixmap(":/Mortys_Vindicator_Challenge/Sprites/Fondo nivel2.jpg").scaled(1600,900));
     nivel2 -> addItem(fondo);
-    num_secuencia = 0;
+    num_secuencia = 4;
     poner_bomba();
     poner_rombos();
     crear_botones();
@@ -16,6 +28,8 @@ NIvel2::NIvel2(QWidget *parent) : QGraphicsView (parent)
     timer_amarillo = new QTimer(this);
     timer_verde = new QTimer(this);
     light_time = new QTimer(this);
+    connect(&timer, SIGNAL(timeout()), this, SLOT(actualizar_tiempo()));
+    timer.start(1000);
     secuencias_vector = {{"ROJO"}, {"ROJO", "VERDE"}, {"ROJO", "VERDE", "AZUL"}, {"ROJO", "VERDE", "AZUL", "VERDE"}, {"ROJO", "VERDE", "AZUL", "VERDE", "AMARILLO"}};
 
 
@@ -50,6 +64,14 @@ NIvel2::NIvel2(QWidget *parent) : QGraphicsView (parent)
 
 void NIvel2::poner_rombos()
 {
+    tiempo -> setPos(20, 20);
+    nivel2 -> addItem(tiempo);
+    idNivel -> setPos(750, 20);
+    idNivel -> setPlainText("Nivel: " + QString::number(id_nivel));
+    nivel2 -> addItem(idNivel);
+    cant_vidas -> setPos(1300, 20);
+    cant_vidas -> setPlainText("Vidas: " + QString::number(vidas));
+    nivel2 -> addItem(cant_vidas);
     rombo_rojo = new rombos(200,200,":/Mortys_Vindicator_Challenge/Sprites/rombo-rojo.png");
     rombo_rojo ->setPos(300,100);
     nivel2 -> addItem(rombo_rojo);
@@ -151,7 +173,9 @@ void NIvel2::secuencias()
         bomba_desactivada->show();
         nivel2 ->removeItem(bomba);
         nivel2 ->addItem(RyM);
-
+        timer.stop();
+        emit secuencia_terminada();
+        //delete this;
     }
 }
 
@@ -219,6 +243,25 @@ void NIvel2::verif_secuencia(const QString& color)
                 num_secuencia = 0;
             }
         }
+    }
+}
+
+void NIvel2::actualizar_tiempo()
+{
+    tiempo_restante -= 1000; // Reduce el tiempo en 1 segundo
+
+    // Obtiene los minutos y segundos restantes
+    int minutesRemaining = tiempo_restante / 60000;
+    int secondsRemaining = (tiempo_restante % 60000) / 1000;
+
+    // Actualiza el texto del QGraphicsTextItem
+    tiempo -> setPlainText(QString::number(minutesRemaining) + ":" + QString::number(secondsRemaining));
+
+    // Si el tiempo restante es 0, finaliza el timer
+    if (tiempo_restante <= 0) {
+        timer.stop();
+        emit reiniciar_nivel();
+        delete this;
     }
 }
 

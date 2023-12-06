@@ -29,12 +29,15 @@ public:
     void poner_sierras();
 signals:
     void pasar_nivel();
+    void reiniciar_nivel();
 public slots:
+    void reiniciar();
     void actualizar_tiempo();
     void terminar_nivel();
 private:
     int vidas;
     int id_nivel;
+    QGraphicsTextItem * cant_vidas;
     QGraphicsTextItem * tiempo;
     QGraphicsTextItem * idNivel;
     QTimer timer;

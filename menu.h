@@ -2,6 +2,7 @@
 #define MENU_H
 
 #include <QWidget>
+#include "juego.h"
 
 namespace Ui {
 class Menu;
@@ -24,6 +25,7 @@ public slots:
     void empezar_juego();
 private:
     Ui::Menu *ui;
+    Juego * juego;
 };
 
 #endif // MENU_H

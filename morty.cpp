@@ -83,7 +83,7 @@ void Morty::cambiar_estado() //Cambia el estado de Morty, cuando este hace conta
     Vy = 0;
     Vx = 0;
     setPixmap(QPixmap(":/Mortys_Vindicator_Challenge/Sprites/morty_default.png").scaled(ancho,alto));
-    sonido_derrota -> play();
+    emit morty_muerto();
 }
 
 void Morty::deteccion_nota() //Detecta la nota cuando el jugador presiona la barra espaciadora
