@@ -1,17 +1,34 @@
 #include "nivel1.h"
 
-Nivel1::Nivel1(QWidget *parent) : QGraphicsView (parent)
+Nivel1::Nivel1(int _vidas, QWidget *parent) : QGraphicsView (parent)
 {
+    vidas = _vidas;
+    id_nivel = 1;
+    idNivel = new QGraphicsTextItem;
+    idNivel -> setFont(QFont("Arial", 22));
+    idNivel -> setDefaultTextColor(Qt::white);
+    tiempo = new QGraphicsTextItem;
+    tiempo -> setFont(QFont("Arial", 22));
+    tiempo -> setDefaultTextColor(Qt::white);
+    tiempo_restante = 3 * 60 * 1000;
+    connect(&timer, SIGNAL(timeout()), this, SLOT(actualizar_tiempo()));
     nivel1 = new QGraphicsScene;
     setFixedSize(1600,900);
-    setScene(nivel1);
+    vindicadores = new Pizarra(406,100);
     fondo = new QGraphicsPixmapItem(QPixmap(":/Mortys_Vindicator_Challenge/Sprites/Fondo nivel1.jpg").scaled(1600,900));
+    connect(vindicadores, SIGNAL(nivel_completado()), this, SLOT(terminar_nivel()));
     nivel1 -> addItem(fondo);
-    start();
+    setScene(nivel1);
+    timer.start(1000);
 }
 
 void Nivel1::start()
 { //Pone todos los elementos en la escena que corresponden al nivel 1
+    tiempo -> setPos(20, 20);
+    nivel1 -> addItem(tiempo);
+    idNivel -> setPos(750, 20);
+    idNivel -> setPlainText("Nivel: " + QString::number(id_nivel));
+    nivel1 -> addItem(idNivel);
     primer_piso();
     segundo_piso();
     tercer_piso();
@@ -120,7 +137,6 @@ void Nivel1::poner_base()
 
 void Nivel1::spawn_morty()
 {
-    vindicadores = new Pizarra(406,100);
     vindicadores -> setPos(900,770);
     nivel1 -> addItem(vindicadores);
     morty = new Morty(vindicadores, 90, 90, ":/Mortys_Vindicator_Challenge/Sprites/morty_default_right.png");
@@ -165,4 +181,26 @@ void Nivel1::poner_sierras()
     sierra2_1 = new Sierra(2, 50,50, ":/Mortys_Vindicator_Challenge/Sprites/sierra.png");
     sierra2_1 -> setPos(1424, 348);
     nivel1 -> addItem(sierra2_1);
+}
+
+void Nivel1::actualizar_tiempo()
+{
+    tiempo_restante -= 1000; // Reduce el tiempo en 1 segundo
+
+    // Obtiene los minutos y segundos restantes
+    int minutesRemaining = tiempo_restante / 60000;
+    int secondsRemaining = (tiempo_restante % 60000) / 1000;
+
+    // Actualiza el texto del QGraphicsTextItem
+    tiempo -> setPlainText(QString::number(minutesRemaining) + ":" + QString::number(secondsRemaining));
+
+    // Si el tiempo restante es 0, finaliza el timer
+    if (tiempo_restante <= 0) {
+        timer.stop();
+    }
+}
+
+void Nivel1::terminar_nivel()
+{
+    emit pasar_nivel();
 }

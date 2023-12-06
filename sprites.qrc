@@ -44,6 +44,7 @@
         <file>Mortys_Vindicator_Challenge/Sprites/supernova_boss_left.png</file>
         <file>Mortys_Vindicator_Challenge/Sprites/supernova_boss_right.png</file>
         <file>Mortys_Vindicator_Challenge/Sprites/bola electrica.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/Fondo menu.jpeg</file>
     </qresource>
     <qresource prefix="/sonidos">
         <file>Mortys_Vindicator_Challenge/Sonidos/checker imagenes.wav</file>

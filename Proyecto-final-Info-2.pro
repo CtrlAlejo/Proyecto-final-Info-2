@@ -16,6 +16,7 @@ SOURCES += \
     jefe.cpp \
     juego.cpp \
     main.cpp \
+    menu.cpp \
     morty.cpp \
     morty_armado.cpp \
     nivel1.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     imagen.h \
     jefe.h \
     juego.h \
+    menu.h \
     morty.h \
     morty_armado.h \
     nivel1.h \
@@ -42,7 +44,8 @@ HEADERS += \
     pizarra.h \
     plasma.h
 
-FORMS +=
+FORMS += \
+    menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

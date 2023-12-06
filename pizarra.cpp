@@ -38,24 +38,32 @@ void Pizarra::check_generator(int id) //Pone los rectangulos verdes sobre la ima
     if (pass1 && id == 1){
         pass1 -> setVisible(true);
         sonido_checker -> play();
+        notas_puestas++;
     }
     else if (pass2 && id == 2){
         pass2 -> setVisible(true);
         sonido_checker -> play();
+        notas_puestas++;
     }
     else if (pass3 && id == 3){
         pass3 -> setVisible(true);
         sonido_checker -> play();
+        notas_puestas++;
     }
     else if (pass4 && id == 4){
         pass4 -> setVisible(true);
         sonido_checker -> play();
+        notas_puestas++;
     }
     else if (pass5 && id == 5){
         pass5 -> setVisible(true);
         sonido_checker -> play();
+        notas_puestas++;
     }
     else{
         qDebug() << "Error";
+    }
+    if (notas_puestas == 5){
+        emit nivel_completado();
     }
 }

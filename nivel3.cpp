@@ -7,7 +7,6 @@ Nivel3::Nivel3(QWidget *parent) : QGraphicsView(parent)
     setScene(nivel3);
     fondo = new QGraphicsPixmapItem(QPixmap(":/Mortys_Vindicator_Challenge/Sprites/Fondo nivel1.jpg").scaled(1600,900));
     nivel3 -> addItem(fondo);
-    start();
 }
 
 void Nivel3::start()

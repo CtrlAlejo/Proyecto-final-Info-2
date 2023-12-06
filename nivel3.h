@@ -11,9 +11,9 @@ class Nivel3 : public QGraphicsView
 {
     Q_OBJECT
 public:
-    Nivel3(QWidget *parent = NULL);
-private:
+    Nivel3(QWidget *parent = nullptr);
     void start();
+private:
     QGraphicsScene * nivel3;
     QGraphicsPixmapItem * fondo;
     Morty_Armado * morty2;

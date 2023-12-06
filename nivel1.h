@@ -8,12 +8,14 @@
 #include <QGraphicsView>
 #include "imagen.h"
 #include "pizarra.h"
+#include <QTimer>
+#include <QGraphicsTextItem>
 
 class Nivel1 : public QGraphicsView
 {
     Q_OBJECT
 public:
-    Nivel1(QWidget *parent = NULL);
+    Nivel1(int _vidas, QWidget *parent = nullptr);
     void start();
     void primer_piso();
     void segundo_piso();
@@ -25,7 +27,18 @@ public:
     void spawn_morty();
     void poner_imagenes();
     void poner_sierras();
+signals:
+    void pasar_nivel();
+public slots:
+    void actualizar_tiempo();
+    void terminar_nivel();
 private:
+    int vidas;
+    int id_nivel;
+    QGraphicsTextItem * tiempo;
+    QGraphicsTextItem * idNivel;
+    QTimer timer;
+    int tiempo_restante;
     QGraphicsScene *nivel1;
     bool check_plataforma;
     QGraphicsPixmapItem *fondo;

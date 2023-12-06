@@ -15,6 +15,8 @@ public:
     Pizarra(int w, int h, QGraphicsRectItem *parent = NULL);
     void generar_rectangulos();
     void check_generator(int id);
+signals:
+    void nivel_completado();
 private:
     QPointF posicion;
     QGraphicsPixmapItem *pass1;
@@ -24,6 +26,7 @@ private:
     QGraphicsPixmapItem *pass5;
     QMediaPlayer * sonido_checker;
     QAudioOutput * audioOutput;
+    int notas_puestas;
 };
 
 #endif // PIZARRA_H

@@ -9,6 +9,7 @@
 #include <QKeyEvent>
 #include <QMediaPlayer>
 #include <QAudioOutput>
+#include <QGraphicsTextItem>
 
 class Morty : public QObject, public QGraphicsPixmapItem
 {
@@ -46,6 +47,7 @@ protected:
     int id_nota;
     Pizarra * pizarra;
     Nota * nota_tomada;
+    QGraphicsTextItem * tiempo;
     QMediaPlayer * sonido_salto;
     QMediaPlayer * sonido_derrota;
     QMediaPlayer * sonido_papel;
