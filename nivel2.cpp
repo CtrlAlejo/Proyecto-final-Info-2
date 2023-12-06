@@ -19,7 +19,7 @@ NIvel2::NIvel2(int _vidas, QWidget *parent) : QGraphicsView (parent)
     tiempo_restante = 5 * 60 * 1000;
     fondo = new QGraphicsPixmapItem(QPixmap(":/Mortys_Vindicator_Challenge/Sprites/Fondo nivel2.jpg").scaled(1600,900));
     nivel2 -> addItem(fondo);
-    num_secuencia = 4;
+    num_secuencia = 0;
     poner_bomba();
     poner_rombos();
     crear_botones();
