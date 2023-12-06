@@ -23,6 +23,17 @@
         <file>Mortys_Vindicator_Challenge/Sprites/vance maximus.png</file>
         <file>Mortys_Vindicator_Challenge/Sprites/rectangulo verde.png</file>
         <file>Mortys_Vindicator_Challenge/Sprites/morty_default.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/rombo-amarillo.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/rombo-azul.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/rombo-rojo.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/rombo-verde.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/rombo-azul-claro.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/rombo-amarillo-claro.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/rombo-verde-claro.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/Fondo nivel2.jpg</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/rombo-rojo-claro.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/bomba.png</file>
+        <file>Mortys_Vindicator_Challenge/Sprites/rick y morty feliz.png</file>
     </qresource>
     <qresource prefix="/sonidos">
         <file>Mortys_Vindicator_Challenge/Sonidos/checker imagenes.wav</file>

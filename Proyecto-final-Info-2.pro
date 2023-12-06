@@ -19,7 +19,8 @@ SOURCES += \
     nivel3.cpp \
     nota.cpp \
     obstaculo.cpp \
-    pizarra.cpp
+    pizarra.cpp \
+    rombos.cpp
 
 HEADERS += \
     imagen.h \
@@ -30,7 +31,8 @@ HEADERS += \
     nivel3.h \
     nota.h \
     obstaculo.h \
-    pizarra.h
+    pizarra.h \
+    rombos.h
 
 FORMS +=
 
